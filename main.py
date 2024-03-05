@@ -26,7 +26,7 @@ async def main():
     load_dotenv() 
 
     # CONSTANTS
-    TELEGRAM_CHAT_ID = 4522564245#Numero de Telegran
+    TELEGRAM_CHAT_ID = Numero
     INPUT_DIRECTORY = 'C:\Automatizacion\Insumos'
     INPUT_FILENAME = 'Input BOT 001 V1.xlsx'
     SUPER_LOG_FILENAME = 'C:/Automatizacion/logs/super_log.txt'
