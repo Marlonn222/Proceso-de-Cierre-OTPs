@@ -49,9 +49,11 @@ async def main():
         # Lobbi del sistema antes de comenzar
         print("----------------- BOT PROCESO DE CIERRE V1 --------------------")                        
         print("Ingresa el valor de 1 para inciar y cualquier otro valor para salir")
-        actividad_rpa = input("1. inciar cierre OTPs\n2. No se realizara actividad\n")
+        actividad_rpa = input("1. inciar cierre OTPs\n2. inciar cierre OTPs rapida\n3. No se realizara actividad\n")
         if actividad_rpa == "1":
             actividad_rpa_selected = 'Proceso de Cierre de OTP'
+        if actividad_rpa == "2":
+            actividad_rpa_selected = 'Proceso de Cierre de OTP rapida'
         else:
             print("No se realizara actividad gracias por avisar")            
             print("Exit")
@@ -88,8 +90,13 @@ async def main():
 
             # se formatean las casillas seleccionados y se hace el llamado a la funcion corespondiente que ejcuta el proceso
             if actividad_rpa.lower() == "1":   
-                print('Validando registro: ',str(row[0].value),row[3].value,row[4].value,row[5].value,str(row[6].value),row[7].value)                
-                resp_funcion = searchCloseOTPs(str(row[0].value),row[3].value,row[4].value,row[5].value,str(row[6].value),row[7].value)
+                print('Validando registro: ',str(row[0].value),row[3].value,row[4].value,row[5].value,row[6].value)                
+                resp_funcion = searchCloseOTPs(str(row[0].value),row[3].value,row[4].value,row[5].value,row[6].value)
+                print("Respuesta de la función:",resp_funcion)  
+
+            if actividad_rpa.lower() == "2":   
+                print('Validando registro: ',str(row[0].value),row[3].value,row[6].value)                
+                resp_funcion = searchCloseOTPsRUN(str(row[0].value),row[3].value,row[6].value)
                 print("Respuesta de la función:",resp_funcion)     
 
             # Manejo de las posibles respuestas identificadas en los metodos de control e impresion en estatus excel.
